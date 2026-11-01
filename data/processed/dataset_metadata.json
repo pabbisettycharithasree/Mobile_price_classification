@@ -1,0 +1,54 @@
+{
+  "dataset_name": "Mobile Price Classification",
+  "target_column": "price_range",
+  "feature_columns": [
+    "battery_power",
+    "blue",
+    "clock_speed",
+    "dual_sim",
+    "fc",
+    "four_g",
+    "int_memory",
+    "m_dep",
+    "mobile_wt",
+    "n_cores",
+    "pc",
+    "px_height",
+    "px_width",
+    "ram",
+    "sc_h",
+    "sc_w",
+    "talk_time",
+    "three_g",
+    "touch_screen",
+    "wifi"
+  ],
+  "train_shape_raw": [
+    1600,
+    20
+  ],
+  "validation_shape_raw": [
+    400,
+    20
+  ],
+  "competition_test_shape_raw": [
+    1000,
+    20
+  ],
+  "train_shape_transformed": [
+    1600,
+    20
+  ],
+  "validation_shape_transformed": [
+    400,
+    20
+  ],
+  "competition_test_shape_transformed": [
+    1000,
+    20
+  ],
+  "validation_size": 0.2,
+  "random_state": 42,
+  "split_strategy": "stratified train/validation split from labeled train.csv",
+  "external_test_has_labels": false
+}

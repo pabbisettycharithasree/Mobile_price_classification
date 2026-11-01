@@ -1,0 +1,66 @@
+# Lab 7 configuration adapted from the supplied churn MLOps reference.
+# Dedicated Lab 7-9 config. Kept separate to avoid overwriting your Labs 1-6 config.yaml.
+
+data:
+  train_path: data/raw/train.csv
+  test_path: data/raw/test.csv
+  processed_dir: data/processed
+  target_column: price_range
+  id_column: id
+  class_labels: [0, 1, 2, 3]
+  feature_columns:
+    - battery_power
+    - blue
+    - clock_speed
+    - dual_sim
+    - fc
+    - four_g
+    - int_memory
+    - m_dep
+    - mobile_wt
+    - n_cores
+    - pc
+    - px_height
+    - px_width
+    - ram
+    - sc_h
+    - sc_w
+    - talk_time
+    - three_g
+    - touch_screen
+    - wifi
+
+split:
+  validation_size: 0.20
+  random_state: 42
+
+model:
+  n_estimators: 300
+  max_depth: 16
+  min_samples_split: 2
+  random_state: 42
+  class_weight: balanced
+
+mlflow:
+  tracking_uri: "sqlite:///mlflow.db"
+  experiment_name: mobile_price_classification_lab7
+
+registry:
+  model_name: Mobile_Price_Classification_Model
+  decision_metric: f1_macro
+
+paths:
+  preprocessor: models/mobile_price_preprocessor.pkl
+  model: models/mobile_price_random_forest.pkl
+  evaluation_report: reports/mobile_price_evaluation_report.json
+  lifecycle_report: reports/mobile_price_lifecycle_report.json
+  inference_output: outputs/mobile_price_test_predictions.csv
+  quality_gate_report: reports/quality_gate_report.json
+  failure_report: reports/failure_report.json
+
+quality_gate:
+  metric: f1_macro
+  minimum_value: 0.80
+
+lab9:
+  repetitions: 1

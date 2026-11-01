@@ -1,0 +1,58 @@
+{
+  "project": "mobile-price-classification",
+  "registered_model": "MobilePriceClassifier",
+  "generated_at_utc": "2026-10-31T08:16:48.355876+00:00",
+  "champion_version": "5",
+  "versions": [
+    {
+      "version": "1",
+      "stage": "None",
+      "run_id": "e49c201bddd5469cb9b70ecece240a61",
+      "tags": {
+        "cv_accuracy": "0.9594",
+        "test_accuracy": "0.97",
+        "source_run_id": "e49c201bddd5469cb9b70ecece240a61"
+      }
+    },
+    {
+      "version": "2",
+      "stage": "None",
+      "run_id": "758d1f61cdf640bcb8038621c96a1ccc",
+      "tags": {
+        "cv_accuracy": "0.9594",
+        "test_accuracy": "0.97",
+        "source_run_id": "758d1f61cdf640bcb8038621c96a1ccc"
+      }
+    },
+    {
+      "version": "3",
+      "stage": "None",
+      "run_id": "5f23563c235b4e7fb2d09f96961d4f35",
+      "tags": {
+        "cv_accuracy": "0.9594",
+        "test_accuracy": "0.97",
+        "source_run_id": "5f23563c235b4e7fb2d09f96961d4f35"
+      }
+    },
+    {
+      "version": "4",
+      "stage": "None",
+      "run_id": "6337248294e744d486f5a953a4dad93b",
+      "tags": {
+        "cv_accuracy": "0.9594",
+        "test_accuracy": "0.97",
+        "source_run_id": "6337248294e744d486f5a953a4dad93b"
+      }
+    },
+    {
+      "version": "5",
+      "stage": "None",
+      "run_id": "34b0cb682bf4461a91e8adc1d0d0a905",
+      "tags": {
+        "cv_accuracy": "0.9594",
+        "test_accuracy": "0.97",
+        "source_run_id": "34b0cb682bf4461a91e8adc1d0d0a905"
+      }
+    }
+  ]
+}

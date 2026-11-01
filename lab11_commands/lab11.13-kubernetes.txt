@@ -1,0 +1,7 @@
+Lab 11/13 quick flow
+1. Prepare artifacts: python src/mlops_pipeline/11_prepare_deployment.py
+2. Build image: docker build -t mobile-price-api:latest .
+3. Run container: docker run --rm -p 8000:8000 mobile-price-api:latest
+4. Apply Kubernetes manifests: kubectl apply -f k8s/
+5. Run tests: pytest -q
+6. Run integration: python src/mlops_pipeline/13_end_to_end.py

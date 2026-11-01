@@ -1,0 +1,9 @@
+{
+  "project": "Mobile Price Classification",
+  "stage": "Lab 8 - Model Quality Gate",
+  "metric": "f1_macro",
+  "minimum_value": 0.8,
+  "actual_value": 0.891598,
+  "status": "PASSED",
+  "promotion_allowed": true
+}

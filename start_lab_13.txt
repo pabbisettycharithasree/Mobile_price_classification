@@ -1,0 +1,6 @@
+LAB 13 START
+1. Confirm Labs 1-9 remain in place.
+2. Install requirements-api.txt in the project venv.
+3. Run pytest -q.
+4. Run python src/mlops_pipeline/13_end_to_end.py.
+5. Review deployment/model_metadata.json and reports/ monitoring reports.

@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.db
+
+# Editor and operating system
+.vscode/
+.DS_Store
+Thumbs.db
+
+# MLflow tracking data
+mlruns/
+mlflow.db
+
+# Temporary files and caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Keep inference logs and monitoring reports out of Git
+logs/inference/*.jsonl
+data/monitoring/drift/*.csv
+
+# Keep project artifacts and reports
+!artifacts/.gitkeep
+!data/processed/.gitkeep
+!logs/.gitkeep
+!models/.gitkeep
+!outputs/.gitkeep
+!reports/.gitkeep

@@ -1,0 +1,43 @@
+project_name: mobile-price-classification
+
+data:
+  raw_path: data/raw/train.csv          # labelled data (Kaggle train.csv)
+  unlabeled_path: data/raw/test.csv     # Kaggle test.csv (no target column, has an `id` column)
+  processed_dir: data/processed
+
+target: price_range
+class_names: ["Low (0)", "Medium (1)", "High (2)", "Very High (3)"]
+
+split:
+  test_size: 0.2
+  random_state: 42
+
+features:
+  engineer: true          # add derived features (see src/preprocess.py)
+
+training:
+  cv_folds: 5
+  scoring: accuracy
+  n_jobs: -1
+  random_state: 42
+  # Hyper-parameter grids (keys map to the `clf__` step of each pipeline)
+  models:
+    logistic_regression:
+      C: [0.1, 1, 10]
+    svc:
+      C: [1, 10]
+      kernel: [rbf, linear]
+    knn:
+      n_neighbors: [5, 9, 15]
+    random_forest:
+      n_estimators: [200, 400]
+      max_depth: [null, 10]
+    gradient_boosting:
+      n_estimators: [100, 200]
+      learning_rate: [0.05, 0.1]
+
+paths:
+  models_dir: models
+  outputs_dir: outputs
+  reports_dir: reports
+  logs_dir: logs

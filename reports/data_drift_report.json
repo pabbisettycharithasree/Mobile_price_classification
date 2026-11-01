@@ -1,0 +1,26 @@
+{
+  "psi_by_feature": {
+    "battery_power": 0.07866793419887244,
+    "blue": 0.0,
+    "clock_speed": 0.0,
+    "dual_sim": 0.0,
+    "fc": 0.0,
+    "four_g": 0.0,
+    "int_memory": 0.0,
+    "m_dep": 0.0,
+    "mobile_wt": 0.0,
+    "n_cores": 0.0,
+    "pc": 0.0,
+    "px_height": 0.014842355812872033,
+    "px_width": 0.07814515712541477,
+    "ram": 0.05048966083061356,
+    "sc_h": 0.0,
+    "sc_w": 0.0,
+    "talk_time": 0.0,
+    "three_g": 0.0,
+    "touch_screen": 0.0,
+    "wifi": 0.0
+  },
+  "drifted_features": [],
+  "threshold": 0.2
+}

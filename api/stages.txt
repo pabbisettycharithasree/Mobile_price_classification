@@ -1,0 +1,6 @@
+Mobile Price Classification stages
+Labs 1-9: existing validated training, tracking, registry, inference and failure-handling work (preserve).
+Lab 10: FastAPI serving.
+Lab 11: Docker and Kubernetes packaging.
+Lab 12: inference monitoring, feature drift, prediction drift and retraining decision support.
+Lab 13: integrated validation workflow.

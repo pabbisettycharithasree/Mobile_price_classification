@@ -1,0 +1,5 @@
+{
+  "retraining_recommended": false,
+  "reason": "No measured drift or drift report not yet generated",
+  "drifted_features": []
+}

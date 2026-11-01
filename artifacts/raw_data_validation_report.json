@@ -1,0 +1,15 @@
+{
+  "stage": "raw_data_validation",
+  "status": "FAILED",
+  "train_shape": [
+    2000,
+    20
+  ],
+  "test_shape": [
+    1000,
+    21
+  ],
+  "errors": [
+    "Training columns mismatch. Missing=['wifi']; extra=[]"
+  ]
+}

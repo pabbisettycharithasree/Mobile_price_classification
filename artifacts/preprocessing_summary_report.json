@@ -1,0 +1,28 @@
+{
+  "stage": "processed_output_validation",
+  "status": "FAILED",
+  "details": {
+    "X_train_shape": [
+      1600,
+      20
+    ],
+    "X_valid_shape": [
+      400,
+      20
+    ],
+    "X_test_shape": [
+      1000,
+      20
+    ],
+    "y_train_shape": [
+      1600
+    ],
+    "y_valid_shape": [
+      400
+    ],
+    "missing_values": 0
+  },
+  "errors": [
+    "X_train contains NaN or infinite values."
+  ]
+}

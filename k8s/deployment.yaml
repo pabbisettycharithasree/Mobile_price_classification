@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mobile-price-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: mobile-price-api}
+  template:
+    metadata:
+      labels: {app: mobile-price-api}
+    spec:
+      containers:
+        - name: api
+          image: mobile-price-api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet: {path: /health, port: 8000}
+            initialDelaySeconds: 5
+            periodSeconds: 10

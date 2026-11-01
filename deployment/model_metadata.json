@@ -1,0 +1,8 @@
+{
+  "project": "Mobile Price Classification",
+  "model_file": "model.pkl",
+  "preprocessor_file": "preprocessor.pkl",
+  "features": 20,
+  "target": "price_range",
+  "source": "existing Lab 9 artifacts"
+}

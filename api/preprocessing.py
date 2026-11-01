@@ -1,0 +1,5 @@
+import pandas as pd
+FEATURES = ["battery_power", "blue", "clock_speed", "dual_sim", "fc", "four_g", "int_memory", "m_dep", "mobile_wt", "n_cores", "pc", "px_height", "px_width", "ram", "sc_h", "sc_w", "talk_time", "three_g", "touch_screen", "wifi"]
+def prepare_input(payload):
+    frame = pd.DataFrame([payload], columns=FEATURES)
+    return frame

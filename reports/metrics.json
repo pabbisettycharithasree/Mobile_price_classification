@@ -1,0 +1,8 @@
+{
+  "model": "svc",
+  "cv_score": 0.9594,
+  "test_accuracy": 0.97,
+  "precision_macro": 0.9703,
+  "recall_macro": 0.97,
+  "f1_macro": 0.97
+}

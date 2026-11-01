@@ -1,0 +1,17 @@
+{
+  "project": "Mobile Price Classification",
+  "status": "LOADED",
+  "train_path": "C:\\Users\\pchar\\Desktop\\my project\\data\\raw\\train.csv",
+  "test_path": "C:\\Users\\pchar\\Desktop\\my project\\data\\raw\\test.csv",
+  "train_rows": 2000,
+  "train_columns": 21,
+  "test_rows": 1000,
+  "test_columns": 21,
+  "target_column": "price_range",
+  "target_distribution": {
+    "0": 500,
+    "1": 500,
+    "2": 500,
+    "3": 500
+  }
+}

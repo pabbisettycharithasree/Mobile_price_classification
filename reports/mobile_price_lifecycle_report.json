@@ -1,0 +1,9 @@
+{
+  "model_name": "Mobile_Price_Classification_Model",
+  "decision_metric": "f1_macro",
+  "decision": "KEPT_EXISTING_PRODUCTION",
+  "promoted": false,
+  "candidate_version": 9,
+  "candidate_metric": 0.8915980707852629,
+  "production_version_after": 1
+}

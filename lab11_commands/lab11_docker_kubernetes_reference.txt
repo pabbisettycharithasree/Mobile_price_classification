@@ -1,0 +1,13 @@
+LAB 11 commands (run from project root)
+
+Build: docker build -t mobile-price-api:latest .
+Run: docker run --rm -p 8000:8000 mobile-price-api:latest
+Check: http://127.0.0.1:8000/docs
+
+Kubernetes:
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+kubectl get deployments,pods,services
+kubectl port-forward service/mobile-price-api-service 8000:8000
+
+Ensure model.pkl and preprocessor.pkl are included in the Docker build context via deployment preparation and Dockerfile adjustments if your model artifacts are stored under deployment/ rather than models/.

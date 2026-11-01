@@ -1,0 +1,9 @@
+LAB 12 MOBILE PRICE MONITORING FLOW
+1. Start API and send sample predictions to create logs/inference/inference_log.jsonl.
+2. python src/mlops_pipeline/12_create_evolved_dataset.py
+3. python src/mlops_pipeline/12_data_drift.py
+4. python src/mlops_pipeline/12_drift_analysis.py
+5. python src/mlops_pipeline/12_prediction_drift.py
+6. python src/mlops_pipeline/12_performance_monitoring.py
+7. python src/mlops_pipeline/12_monitor_trigger.py
+8. Review reports/ before deciding whether to train a candidate. No automatic promotion occurs.

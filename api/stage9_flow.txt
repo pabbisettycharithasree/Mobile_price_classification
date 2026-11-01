@@ -1,0 +1,4 @@
+Stage 9 hand-off for Mobile Price Classification
+1. Lab 9 produces/retains models/mobile_price_random_forest.pkl and models/mobile_price_preprocessor.pkl.
+2. Lab 10 API loads those artifacts; it does not retrain or overwrite Labs 1-9 outputs.
+3. Check feature order against the 20-column Mobile Price training schema before serving.
