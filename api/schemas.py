@@ -1,7 +1,10 @@
+
 from pydantic import BaseModel, Field, ConfigDict
+
 
 class MobileFeatures(BaseModel):
     model_config = ConfigDict(extra="forbid")
+
     battery_power: float = Field(ge=0)
     blue: int = Field(ge=0, le=1)
     clock_speed: float = Field(ge=0)
@@ -23,6 +26,16 @@ class MobileFeatures(BaseModel):
     touch_screen: int = Field(ge=0, le=1)
     wifi: int = Field(ge=0, le=1)
 
+
 class PredictionResponse(BaseModel):
     predicted_price_range: int
     model_version: str
+
+
+class BatchPredictionRequest(BaseModel):
+    items: list[MobileFeatures] = Field(min_length=1)
+
+
+class BatchPredictionResponse(BaseModel):
+    total_predictions: int
+    predictions: list[PredictionResponse]

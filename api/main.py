@@ -1,9 +1,16 @@
 
 import time
+import json
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 
-from .schemas import MobileFeatures, PredictionResponse
+from .schemas import (
+    MobileFeatures,
+    PredictionResponse,
+    BatchPredictionRequest,
+    BatchPredictionResponse
+)
 from .model_loader import load_artifacts
 from .preprocessing import prepare_input
 from .monitoring_logger import log_prediction
@@ -11,6 +18,7 @@ from .monitoring_logger import log_prediction
 
 app = FastAPI(
     title="Mobile Price Classification API",
+    description="Machine Learning Model Serving API",
     version="1.0.0"
 )
 
@@ -29,14 +37,33 @@ def artifacts():
     return _model, _preprocessor
 
 
+# --------------------------------------------------
+# ROOT ENDPOINT
+# --------------------------------------------------
+
+@app.get("/")
+def root():
+    return {
+        "message": "Welcome to Mobile Price Classification API",
+        "status": "running",
+        "docs": "/docs"
+    }
+
+
+# --------------------------------------------------
+# HEALTH ENDPOINT
+# --------------------------------------------------
+
 @app.get("/health")
 def health():
     try:
         artifacts()
+
         return {
             "status": "healthy",
             "model_loaded": True
         }
+
     except Exception as exc:
         return {
             "status": "not_ready",
@@ -45,19 +72,58 @@ def health():
         }
 
 
+# --------------------------------------------------
+# MODEL METADATA ENDPOINT
+# --------------------------------------------------
+
+@app.get("/metadata")
+def metadata():
+    metadata_path = (
+        Path(__file__).resolve().parents[1]
+        / "deployment"
+        / "model_metadata.json"
+    )
+
+    if metadata_path.exists():
+        try:
+            with open(metadata_path, "r", encoding="utf-8") as file:
+                return json.load(file)
+
+        except Exception as exc:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Unable to read model metadata: {exc}"
+            )
+
+    return {
+        "model_name": "Mobile Price Classification",
+        "model_version": MODEL_VERSION,
+        "problem_type": "Multi-class Classification",
+        "status": "loaded"
+    }
+
+
+# --------------------------------------------------
+# SINGLE PREDICTION ENDPOINT
+# --------------------------------------------------
+
 @app.post("/predict", response_model=PredictionResponse)
 def predict(payload: MobileFeatures):
+
     start_time = time.perf_counter()
 
     try:
         model, preprocessor = artifacts()
 
         frame = prepare_input(payload.model_dump())
+
         transformed = preprocessor.transform(frame)
 
         pred = int(model.predict(transformed)[0])
 
-        elapsed_ms = (time.perf_counter() - start_time) * 1000
+        elapsed_ms = (
+            time.perf_counter() - start_time
+        ) * 1000
 
         log_prediction(
             payload.model_dump(),
@@ -82,3 +148,27 @@ def predict(payload: MobileFeatures):
             status_code=500,
             detail=f"Prediction failed: {exc}"
         )
+
+
+# --------------------------------------------------
+# BATCH PREDICTION ENDPOINT
+# --------------------------------------------------
+
+
+@app.post(
+    "/predict/batch",
+    response_model=BatchPredictionResponse
+)
+def predict_batch(payload: BatchPredictionRequest):
+
+    predictions = []
+
+    for mobile in payload.items:
+        result = predict(mobile)
+        predictions.append(result)
+
+    return BatchPredictionResponse(
+        total_predictions=len(predictions),
+        predictions=predictions
+    )
+
